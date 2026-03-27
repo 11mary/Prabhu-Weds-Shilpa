@@ -1,0 +1,133 @@
+body {
+margin: 0;
+font-family: 'Poppins', sans-serif;
+background: #0f0f0f;
+color: white;
+}
+
+/* ENTRY */
+#entry {
+height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+/* BUTTON */
+button {
+background: #ffb6c1;
+border: none;
+padding: 10px 20px;
+border-radius: 25px;
+cursor: pointer;
+}
+
+/* HERO */
+.hero {
+text-align: center;
+padding: 80px 20px;
+}
+
+/* STORY */
+.story {
+text-align: center;
+padding: 40px;
+}
+
+/* EVENTS */
+.events {
+max-width: 1100px;
+margin: 0 auto;
+padding: 40px 20px;
+}
+
+.events h2 {
+text-align: center;
+margin-bottom: 40px;
+}
+
+/* ROW */
+.event-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 10px;
+text-align:left;
+margin: 60px 0;
+}
+
+.event-row.reverse {
+flex-direction: row-reverse;
+}
+
+/* TEXT */
+.event-text {
+flex: 1;
+max-width: 600px;
+text-align:center;
+}
+
+/* IMAGE */
+.event-image {
+flex: 1;
+display: flex;
+justify-content: center;
+}
+
+.event-image img {
+width: 100%;
+max-width: 350px;
+border-radius: 20px;
+}
+
+/* TRAVEL */
+.travel {
+text-align: center;
+padding: 50px;
+}
+
+.travel img {
+width: 80%;
+max-width: 400px;
+border-radius: 20px;
+}
+
+/* COUNTDOWN */
+.countdown {
+text-align: center;
+padding: 50px;
+}
+
+/* MAP FULL WIDTH */
+.map h2 {
+text-align: center;
+}
+
+.map iframe {
+width: 100%;
+height: 350px;
+border: none;
+}
+
+/* FOOTER */
+.footer {
+text-align: center;
+padding: 50px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+.event-row {
+flex-direction: column;
+text-align: center;
+}
+
+.event-row.reverse {
+flex-direction: column;
+}
+
+.event-text {
+text-align: center;
+}
+}
