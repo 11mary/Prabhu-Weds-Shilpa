@@ -38,7 +38,7 @@ function nextSlide() {
     if (video && !video.paused) {
         video.pause();
         video.currentTime = 0; // reset video
-        music.play(); // resume music
+        music.play().catch(() => {}); // resume music
     }
 
     slides[currentSlide].classList.remove("active");
