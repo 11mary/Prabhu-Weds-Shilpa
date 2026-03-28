@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,101 +8,135 @@
 
 <body>
 
-<!-- ENTRY -->
-
 <div id="entry">
-    <h1>Prabhu ❤️ Shilpa</h1>
-    <p>Beginning of Forever </p>
-    <button onclick="enterSite()">Enter</button>
+    <button class="entry-btn" onclick="enterSite()">OMG Look who's Here 💖</button>
 </div>
 
-<div id="main" style="display:none;">
+<div id="main">
 
-    <!-- HERO -->
+    <button id="musicBtn" onclick="toggleMusic()">🔊</button>
 
-    <section class="hero">
+    <!-- SLIDE 1 -->
+    <section class="slide active hero-slide">
+        <video autoplay muted loop class="bg-video">
+            <source src="src/bg1.mp4" type="video/mp4">
+        </video>
         <h1 id="typing"></h1>
         <p>We are getting married 💍</p>
-        <h2>WelComing You and Your Family With Lots of Love</h2>
+        <h3>Welcoming You & Your Family 💖</h3>
+        <button onclick="nextSlide()">Get to Know 💕</button>
     </section>
 
-    <!-- STORY -->
+    <!-- SLIDE 2 (VIDEO BACKGROUND) -->
+    <section class="slide couple-slide">
 
-    <section class="story">
-        <h2>A Step</h2>
-        <p>
-            From a simple hello to forever…
-            we found love, laughter, and a home in each other ❤️
-        </p>
-    </section>
+        <video autoplay muted loop class="bg-video">
+            <source src="src/video.mp4" type="video/mp4">
+        </video>
 
-    <!-- EVENTS -->
+        <h2>Meet the Couple 💑</h2>
 
-    <section class="events">
-        <h2>Wedding Celebrations 🎉</h2>
-
-        <!-- Reception -->
-
-        <div class="event-row">
-            <div class="event-text">
-                <h3>Reception 🌙</h3>
-                <p>April 8, 2026</p>
-                <p>From 7:00 PM onwards</p>
-                <p>A magical evening filled with love 💖</p>
+        <div class="couple-grid">
+            <div class="person">
+                <img src="src/img_1.png">
+                <h3>Prabhu 🤵</h3>
+                <p>Certified good boy 😇 but only for her 💖</p>
+                <p>Professional overthinker & full-time lover 💕</p>
+                <p>Promise: Will say “yes dear” (sometimes 😜)</p>
             </div>
-            <div class="event-image">
-                <img src="reception.jpeg">
-            </div>
-        </div>
 
-        <!-- Muhurtham -->
-
-        <div class="event-row reverse">
-            <div class="event-text">
-                <h3>Muhurtham 💍</h3>
-                <p>April 9, 2026</p>
-                <p>9:00 AM – 10:00 AM</p>
-                <p>A sacred beginning of forever ✨</p>
-            </div>
-            <div class="event-image">
-                <img src="muhurtha.jpeg">
+            <div class="person">
+                <img src="src/img.png">
+                <h3>Shilpa 👰</h3>
+                <p>Queen of his heart 👑 & boss of his life 😂</p>
+                <p>Sweet, strong & slightly dramatic 💃✨</p>
+                <p>Promise: Will steal his food 🍕😋</p>
             </div>
         </div>
 
+        <button onclick="nextSlide()">Next 💕</button>
     </section>
 
-    <!-- TRAVEL -->
+    <!-- SLIDE 3 -->
+    <section class="slide events-slide">
+        <video autoplay muted loop class="bg-video">
+            <source src="src/bg3.mp4" type="video/mp4">
+        </video>
 
-    <section class="travel">
-        <h2>Our Journey Together ✨</h2>
-        <img src="travel.jpeg">
-        <p>Life is a beautiful journey… every step together is magical 💕</p>
+        <div class="events">
+            <h2>Wedding Celebrations 🎉</h2>
+
+            <div class="event-row">
+                <div>
+                    <h3>Reception </h3>
+                    <p>April 8, 2026</p>
+                    <p>7:00 PM onwards</p>
+                    <p>Let’s eat, dance & judge outfits 😜✨</p>
+                    <p>Unlimited selfies 📸💖</p>
+                </div>
+                <img src="src/reception.jpeg">
+            </div>
+
+            <div class="event-row reverse">
+                <div>
+                    <h3>Muhurtham 💍</h3>
+                    <p>April 9, 2026</p>
+                    <p>9:00 AM – 10:00 AM</p>
+                    <p>The moment he says “I do” 😌💖</p>
+                    <p>Come before he runs away 😂</p>
+                </div>
+                <img src="src/muhurtha.jpeg">
+            </div>
+        </div>
+
+        <button onclick="nextSlide()">Next 💕</button>
     </section>
 
-    <!-- COUNTDOWN -->
+    <!-- SLIDE 4 -->
+    <section class="slide journey-slide">
+        <video autoplay muted loop class="bg-video">
+            <source src="src/bg2.mp4" type="video/mp4">
+        </video>
+        <div class="journey-container">
 
-    <section class="countdown">
-        <h2>Counting the Moments 💖</h2>
-        <h3 id="timer"></h3>
+            <video id="weddingVideo" controls>
+                <source src="src/video.MOV" type="video/mp4">
+            </video>
+
+            <div class="journey-text">
+                <h2>Our Journey 🎥</h2>
+                <p>From “Hi” to “Forever” 💕</p>
+                <p>Love, fights & patchups 😜</p>
+                <p>Still survived each other 😆💖</p>
+                <button onclick="nextSlide()">Next 💕</button>
+            </div>
+
+        </div>
     </section>
 
-    <!-- MAP -->
-
-    <section class="map">
+    <!-- SLIDE 5 -->
+    <section class="slide venue-slide">
         <h2>Venue 📍</h2>
         <iframe src="https://www.google.com/maps?q=Sri+Devi+Kalyana+Mantapa&output=embed"></iframe>
+        <button onclick="nextSlide()">Next 💕</button>
     </section>
 
-    <!-- FOOTER -->
-
-    <section class="footer">
-        <h2>With Love 💖</h2>
-        <p>Join us and bless our journey ✨</p>
+    <!-- FINAL -->
+    <section class="slide final-slide">
+        <video autoplay muted loop class="bg-video">
+            <source src="src/bg4.mp4" type="video/mp4">
+        </video>
+        <h3>We’re waiting for you 💖</h3>
+        <h1>Your presence = Our happiness 🥹✨</h1>
+        <h3>Come bless us… and don't forget to bring gifts 😜🎁</h3>
     </section>
 
 </div>
 
-<script src="script.js"></script>
+<audio id="bgMusic" loop>
+    <source src="src/song.mp3" type="audio/mpeg">
+</audio>
 
+<script src="script.js"></script>
 </body>
 </html>
