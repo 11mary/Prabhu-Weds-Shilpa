@@ -67,7 +67,7 @@ background-size: cover;
 background-position: center;
 position: relative;
     font-family: 'Alex Brush', cursive;
-    font-size: 30px;
+    font-size: 50px;
 
 }
 
@@ -139,4 +139,74 @@ iframe {
 width: 90%;
 height: 300px;
 border-radius: 20px;
+}
+
+.final-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #ffe6f0, #fff5f9);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fade animation */
+.fade {
+    font-size: 40px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+}
+
+.fade:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.fade:nth-child(3) {
+    animation-delay: 2s;
+}
+
+/* Glow effect */
+.glow {
+    font-size: 50px;
+    color: #ff4da6;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66b2;
+    }
+    to {
+        text-shadow: 0 0 20px #ff4da6, 0 0 40px #ff1a8c;
+    }
+}
+
+/* Floating hearts */
+.hearts span {
+    position: absolute;
+    bottom: -50px;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+}
+
+.hearts span:nth-child(1) { left: 20%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 40%; animation-delay: 2s; }
+.hearts span:nth-child(3) { left: 60%; animation-delay: 4s; }
+.hearts span:nth-child(4) { left: 80%; animation-delay: 1s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-500px);
+        opacity: 0;
+    }
 }
