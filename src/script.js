@@ -1,110 +1,96 @@
 function enterSite() {
-    document.getElementById("entry").style.display = "none";
-    document.getElementById("main").style.display = "block";
+document.getElementById("entry").style.display="none";
+document.getElementById("main").style.display="block";
 
-    let music = document.getElementById("bgMusic");
-    music.play();
+let music=document.getElementById("bgMusic");
+music.play().catch(()=>{});
 
-    slides = document.querySelectorAll(".slide");
+slides=document.querySelectorAll(".slide");
 
-    typeEffect();
-    setupVideoControl();
+typeEffect();
 }
 
-/* MUSIC TOGGLE */
-function toggleMusic() {
-    let music = document.getElementById("bgMusic");
-    let btn = document.getElementById("musicBtn");
-
-    if (music.paused) {
-        music.play();
-        btn.innerHTML = "🔊";
-    } else {
-        music.pause();
-        btn.innerHTML = "🔇";
-    }
+/* MUSIC */
+function toggleMusic(){
+let music=document.getElementById("bgMusic");
+music.paused?music.play():music.pause();
 }
 
 /* SLIDES */
-let currentSlide = 0;
+let currentSlide=0;
 let slides;
 
-function nextSlide() {
+function nextSlide(){
 
-    // 👉 FIX: stop video if leaving journey slide
-    let video = document.getElementById("weddingVideo");
-    let music = document.getElementById("bgMusic");
+slides[currentSlide].classList.remove("active");
+currentSlide++;
 
-    if (video && !video.paused) {
-        video.pause();
-        video.currentTime = 0; // reset video
-        music.play().catch(() => {}); // resume music
-    }
-
-    slides[currentSlide].classList.remove("active");
-    currentSlide++;
-
-    if (currentSlide < slides.length) {
-        slides[currentSlide].classList.add("active");
-    }
+if(currentSlide<slides.length){
+slides[currentSlide].classList.add("active");
 }
 
-/* VIDEO CONTROL */
-function setupVideoControl() {
-    let video = document.getElementById("weddingVideo");
-    let music = document.getElementById("bgMusic");
-
-    if (!video) return;
-
-    video.addEventListener("play", () => {
-        music.pause();
-    });
-
-    video.addEventListener("pause", () => {
-        music.play();
-    });
-
-    video.addEventListener("ended", () => {
-        music.play();
-    });
+if(currentSlide===slides.length-1){
+startFinalTyping();
+}
 }
 
-/* TYPING */
-let text = "Prabhu Weds Shilpa — A Love Story 💍";
-let i = 0;
+/* HERO TYPE */
+let text="Prabhu Weds Shilpa — A Love Story 💍";
+let i=0;
 
-function typeEffect() {
-    i = 0;
-    document.getElementById("typing").innerHTML = "";
+function typeEffect(){
+let el=document.getElementById("typing");
+el.innerHTML="";
 
-    function type() {
-        if (i < text.length) {
-            document.getElementById("typing").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, 80);
-        }
+function type(){
+if(i<text.length){
+el.innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,80);
+}
+}
+type();
+}
+
+/* FINAL TYPE */
+function startFinalTyping() {
+  let el = document.getElementById("finalText");
+
+  let text = el.innerHTML;   // ✅ keep HTML (br, spaces)
+  el.innerHTML = "";
+
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      el.innerHTML += text.charAt(i);  // ✅ use innerHTML
+      i++;
+      setTimeout(type, 40);
     }
-    type();
+  }
+
+  type();
 }
+/* FLOATING HEARTS 💖 */
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.innerHTML="💖";
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="-20px";
+heart.style.fontSize="20px";
 
-/* HEARTS */
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.innerHTML = "💖";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-20px";
+document.body.appendChild(heart);
 
-    document.body.appendChild(heart);
+let pos=0;
+let move=setInterval(()=>{
+pos+=2;
+heart.style.bottom=pos+"px";
+},20);
 
-    let pos = 0;
-    let move = setInterval(() => {
-        pos += 2;
-        heart.style.bottom = pos + "px";
-    }, 20);
+setTimeout(()=>{
+clearInterval(move);
+heart.remove();
+},4000);
 
-    setTimeout(() => {
-        clearInterval(move);
-        heart.remove();
-    }, 4000);
-}, 500);
+},500);
