@@ -6,6 +6,10 @@ body {
   color: white;
   overflow: hidden;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* ENTRY */
 #entry {
@@ -63,7 +67,8 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
+ width: 90%;
+ max-width: 800px;
   height: 100%;
   object-fit: cover;
   transform: translate(-50%, -50%);
@@ -105,14 +110,15 @@ h1, h2, h3 {
 }
 
 .event-row img {
-  width: 45%;
-  max-width: 420px;
+ width: 90%;
+ max-width: 800px;
   border-radius: 20px;
   object-fit: cover;
 }
 
 .event-row div {
-  width: 50%;
+ width: 90%;
+ max-width: 800px;
 }
 
 /* JOURNEY */
@@ -121,11 +127,13 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
   gap: 60px;
+  flex-wrap: wrap;
 }
 
 /* MAP */
 iframe {
-  width: 90%;
+ width: 90%;
+ max-width: 800px;
   height: 300px;
   border-radius: 20px;
 }
@@ -134,7 +142,7 @@ iframe {
 .content {
   height: 100%;
   width: 90%;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
 
   display: flex;
@@ -147,8 +155,8 @@ align-items: flex-start;   /* 💥 LEFT ALIGN */
 /* 💥 TEXT FIX (MAIN FIX) */
 #finalText {
   display: block;
-  width: 100%;
-  max-width: 750px;
+ width: 90%;
+ max-width: 800px;
 
   font-size: 28px;
   line-height: 2.2;
@@ -189,49 +197,29 @@ align-items: flex-start;   /* 💥 LEFT ALIGN */
   100% { transform: translateY(-500px); opacity: 0; }
 }
 
-/* 📱 MOBILE */
-@media (max-width:768px) {
-
-  .event-row,
-  .event-row.reverse {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .event-row img,
-  .event-row div {
-    width: 100%;
-  }
-
+@media (max-width: 768px) {
   .couple-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;   /* 💥 stack items */
+  }
+
+  .event-row {
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   .person img {
-    width: 280px;
-    height: 280px;
-  }
-
-  h1 { font-size: 32px !important; }
-  h2 { font-size: 28px !important; }
-  h3 { font-size: 24px !important; }
-
-  p { font-size: 18px !important; }
-
-  button {
-    font-size: 22px;
-    padding: 12px 18px;
+   width: 90%;
+   max-width: 800px;
+    height: 250px;
   }
 
   #finalText {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.8;
-    font-weight: 600;
   }
 
   .glow {
-    font-size: 58px;
-    font-weight: 600;
+    font-size: 38px;
   }
 }
 
