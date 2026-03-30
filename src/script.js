@@ -17,21 +17,41 @@ music.paused?music.play():music.pause();
 }
 
 /* SLIDES */
-let currentSlide=0;
-let slides;
+let currentSlide = 0;
+let slides = document.querySelectorAll(".slide");
 
+// 👉 Show slide function (important)
+function showSlide(index){
+    slides.forEach((slide)=>{
+        slide.classList.remove("active");
+    });
+    slides[index].classList.add("active");
+}
+
+// 👉 Next button
 function nextSlide(){
+    currentSlide++;
 
-slides[currentSlide].classList.remove("active");
-currentSlide++;
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
+    }
 
-if(currentSlide<slides.length){
-slides[currentSlide].classList.add("active");
+    showSlide(currentSlide);
+
+    if(currentSlide === slides.length - 1){
+        startFinalTyping();
+    }
 }
 
-if(currentSlide===slides.length-1){
-startFinalTyping();
-}
+// 👉 Back button
+function prevSlide(){
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = slides.length - 1;
+    }
+
+    showSlide(currentSlide);
 }
 
 /* HERO TYPE */
